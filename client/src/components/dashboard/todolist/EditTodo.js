@@ -19,8 +19,6 @@ const EditTodo = ({ todo, setTodosChange }) => {
       });
 
       setTodosChange(true);
-
-      // window.location = "/";
     } catch (err) {
       console.error(err.message);
     }
@@ -28,67 +26,69 @@ const EditTodo = ({ todo, setTodosChange }) => {
 
   return (
     <Fragment>
-      <button
-        type="button"
-        className="btn"
-        data-bs-toggle="modal"
-        data-bs-target={`#id${todo.todo_id}`}
-        onClick={() => setDescription(todo.description)}
-      >
-        ✏️
-      </button>
+      <div className="container">
+        <button
+          type="button"
+          className="btn"
+          data-bs-toggle="modal"
+          data-bs-target={`#id${todo.todo_id}`}
+          onClick={() => setDescription(todo.description)}
+        >
+          ✏️
+        </button>
 
-      <div
-        className="modal fade"
-        id={`id${todo.todo_id}`}
-        // tabIndex="-1"
-        aria-labelledby={`id${todo.todo_id}Label`}
-        aria-hidden="true"
-        // onClick={() => setDescription(todo.description)}
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h1 className="modal-title fs-5" id={`id${todo.todo_id}Label`}>
-                Edit
-              </h1>
+        <div
+          className="modal fade"
+          id={`id${todo.todo_id}`}
+          tabIndex="-1"
+          aria-labelledby={`id${todo.todo_id}Label`}
+          aria-hidden="true"
+          // onClick={() => setDescription(todo.description)}
+        >
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h1 className="modal-title fs-5" id={`id${todo.todo_id}Label`}>
+                  Edit
+                </h1>
 
-              <button
-                type="button"
-                className="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-                onClick={() => setDescription(todo.description)}
-              ></button>
-            </div>
+                <button
+                  type="button"
+                  className="btn-close btn-sm"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                  onClick={() => setDescription(todo.description)}
+                ></button>
+              </div>
 
-            <div className="modal-body">
-              <input
-                type="text"
-                className="form-control"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </div>
+              <div className="modal-body">
+                <input
+                  type="text"
+                  className="form-control"
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                />
+              </div>
 
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-bs-dismiss="modal"
-                onClick={() => setDescription(todo.description)}
-              >
-                Close
-              </button>
+              <div className="modal-footer">
+                <button
+                  type="button"
+                  className="btn btn-secondary btn-sm"
+                  data-bs-dismiss="modal"
+                  onClick={() => setDescription(todo.description)}
+                >
+                  Close
+                </button>
 
-              <button
-                type="button"
-                className="btn btn-primary"
-                data-bs-dismiss="modal"
-                onClick={() => editText(todo.todo_id)}
-              >
-                Save
-              </button>
+                <button
+                  type="button"
+                  className="btn btn-primary btn-sm"
+                  data-bs-dismiss="modal"
+                  onClick={() => editText(todo.todo_id)}
+                >
+                  Save
+                </button>
+              </div>
             </div>
           </div>
         </div>

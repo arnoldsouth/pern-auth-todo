@@ -46,10 +46,10 @@ const Login = ({ setAuth }) => {
 
   return (
     <Fragment>
-      <div>
-        <h1 className="mt-5 text-center">Login</h1>
+      <div className="container">
+        <h1 className="mt-5 mb-3 text-center">Login</h1>
 
-        <div className="d-grid justify-content-center gap-3">
+        <div className="d-grid justify-content-center gap-2">
           <form onSubmit={onSubmitForm}>
             <div className="mb-3">
               <label htmlFor="emailFormControlInput" className="form-label">
@@ -81,29 +81,13 @@ const Login = ({ setAuth }) => {
               />
             </div>
 
-            {/* <form onSubmit={onSubmitForm}>
-          <input
-            type="text"
-            name="email"
-            value={email}
-            onChange={(e) => onChange(e)}
-            className="form-control my-3"
-          />
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={(e) => onChange(e)}
-            className="form-control my-3"
-          /> */}
-
             <button type="submit" className="btn btn-primary btn-sm">
               Login
             </button>
           </form>
 
           <div>
-            <Link to="/register" className="btn btn-primary btn-sm">
+            <Link to="/register" className="btn btn-outline-primary btn-sm">
               Register
             </Link>
           </div>

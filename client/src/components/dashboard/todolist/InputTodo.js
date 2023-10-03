@@ -30,22 +30,24 @@ const InputTodo = ({ setTodosChange }) => {
   };
   return (
     <Fragment>
-      <div>
-        <h5 className="text-center mt-5">Add New Todo</h5>
-      </div>
+      <div className="container">
+        <div>
+          <h5 className="text-center mt-5">Add New Todo</h5>
+        </div>
 
-      <div>
-        <form className="d-flex gap-3" onSubmit={onSubmitForm}>
-          <input
-            type="text"
-            placeholder="Walk Touka"
-            className="form-control form-control-sm"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
+        <div>
+          <form className="d-flex gap-3" onSubmit={onSubmitForm}>
+            <input
+              type="text"
+              placeholder="Walk Touka"
+              className="form-control form-control-sm"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
 
-          <button className="btn btn-primary btn-sm">Add</button>
-        </form>
+            <button className="btn btn-primary btn-sm">Add</button>
+          </form>
+        </div>
       </div>
     </Fragment>
   );

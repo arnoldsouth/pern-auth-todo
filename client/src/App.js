@@ -39,45 +39,43 @@ const App = () => {
   return (
     <BrowserRouter>
       <Fragment>
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Landing />} />
+        <Routes>
+          <Route path="/" element={<Landing />} />
 
-            <Route
-              path="/dashboard"
-              element={
-                isAuthenticated ? (
-                  <Dashboard setAuth={setAuth} />
-                ) : (
-                  <Navigate to="/login" replace />
-                )
-              }
-            />
+          <Route
+            path="/dashboard"
+            element={
+              isAuthenticated ? (
+                <Dashboard setAuth={setAuth} />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
+          />
 
-            <Route
-              path="/login"
-              element={
-                isAuthenticated ? (
-                  <Navigate to="/dashboard" replace />
-                ) : (
-                  <Login setAuth={setAuth} />
-                )
-              }
-            />
+          <Route
+            path="/login"
+            element={
+              isAuthenticated ? (
+                <Navigate to="/dashboard" replace />
+              ) : (
+                <Login setAuth={setAuth} />
+              )
+            }
+          />
 
-            <Route
-              path="/register"
-              element={
-                isAuthenticated ? (
-                  <Navigate to="/dashboard" replace />
-                ) : (
-                  <Register setAuth={setAuth} />
-                )
-              }
-            />
-          </Routes>
-          {/* <ToastContainer /> */}
-        </div>
+          <Route
+            path="/register"
+            element={
+              isAuthenticated ? (
+                <Navigate to="/dashboard" replace />
+              ) : (
+                <Register setAuth={setAuth} />
+              )
+            }
+          />
+        </Routes>
+        {/* <ToastContainer /> */}
       </Fragment>
     </BrowserRouter>
   );

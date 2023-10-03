@@ -45,35 +45,74 @@ const Register = ({ setAuth }) => {
 
   return (
     <Fragment>
-      <h1 className="mt-5 text-center">Register</h1>
-      <form onSubmit={onSubmitForm}>
-        <input
-          type="text"
-          name="email"
-          value={email}
-          placeholder="email"
-          onChange={(e) => onChange(e)}
-          className="form-control my-3"
-        />
-        <input
-          type="password"
-          name="password"
-          value={password}
-          placeholder="password"
-          onChange={(e) => onChange(e)}
-          className="form-control my-3"
-        />
-        <input
-          type="text"
-          name="name"
-          value={name}
-          placeholder="name"
-          onChange={(e) => onChange(e)}
-          className="form-control my-3"
-        />
-        <button className="btn btn-success btn-block">Submit</button>
-      </form>
-      <Link to="/login">login</Link>
+      <div className="container">
+        <h1 className="mt-5 mb-3 text-center">Register</h1>
+
+        <div className="d-grid justify-content-center gap-2">
+          <form onSubmit={onSubmitForm}>
+            <div className="mb-3">
+              <label
+                htmlFor="emailRegisterFormControlInput"
+                className="form-label"
+              >
+                Email address
+              </label>
+              <input
+                type="text"
+                name="email"
+                className="form-control form-control-sm"
+                id="emailRegisterFormControlInput"
+                placeholder="name@example.com"
+                value={email}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="inputPasswordRegister" className="form-label">
+                Password
+              </label>
+              <input
+                type="password"
+                name="password"
+                className="form-control form-control-sm"
+                id="inputPasswordRegister"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label
+                htmlFor="nameRegisterFormControlInput"
+                className="form-label"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                className="form-control form-control-sm"
+                id="nameRegisterFormControlInput"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+
+            <button type="submit" className="btn btn-primary btn-sm">
+              Register
+            </button>
+          </form>
+
+          <div>
+            <Link to="/login" className="btn btn-outline-primary btn-sm">
+              Login
+            </Link>
+          </div>
+        </div>
+      </div>
     </Fragment>
   );
 };

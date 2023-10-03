@@ -1,18 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
-    <div className="jumbotron mt-5">
-      <h1>Welcome to Todo City</h1>
-      <p>Sign In and start building your todo list</p>
-      <Link to="/login" className="btn btn-primary">
-        Login
-      </Link>
-      <Link to="/register" className="btn btn-primary ml-3">
-        Register
-      </Link>
-    </div>
+    <Fragment>
+      <div className="container">
+        <div className="d-flex mt-3 justify-content-between">
+          <div>
+            <h1>PERN Auth Todo</h1>
+          </div>
+
+          <div>
+            <div className="d-flex gap-2">
+              <Link to="/login" className="btn btn-primary btn-sm">
+                Login
+              </Link>
+
+              <Link to="/register" className="btn btn-primary btn-sm">
+                Register
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Fragment>
   );
 };
 

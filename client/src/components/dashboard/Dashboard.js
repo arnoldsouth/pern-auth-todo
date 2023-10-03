@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 
 import InputTodo from './todolist/InputTodo';
@@ -44,23 +44,25 @@ const Dashboard = ({ setAuth }) => {
   }, [todosChange]);
 
   return (
-    <div>
-      <div className="d-flex mt-2 justify-content-between">
-        <h2>{name}'s Dashboard</h2>
+    <Fragment>
+      <div className="container">
+        <div className="d-flex mt-2 justify-content-between">
+          <h2>{name}'s Dashboard</h2>
 
-        <div>
-          <button
-            onClick={(e) => logout(e)}
-            className="btn btn-outline-primary btn-sm"
-          >
-            Logout
-          </button>
+          <div>
+            <button
+              onClick={(e) => logout(e)}
+              className="btn btn-outline-primary btn-sm"
+            >
+              Logout
+            </button>
+          </div>
         </div>
-      </div>
 
-      <InputTodo setTodosChange={setTodosChange} />
-      <ListTodos allTodos={allTodos} setTodosChange={setTodosChange} />
-    </div>
+        <InputTodo setTodosChange={setTodosChange} />
+        <ListTodos allTodos={allTodos} setTodosChange={setTodosChange} />
+      </div>
+    </Fragment>
   );
 };
 
