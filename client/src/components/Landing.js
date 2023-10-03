@@ -12,11 +12,11 @@ const Landing = () => {
 
           <div>
             <div className="d-flex gap-2">
-              <Link to="/login" className="btn btn-primary btn-sm">
+              <Link to="/login" className="btn btn-primary">
                 Login
               </Link>
 
-              <Link to="/register" className="btn btn-primary btn-sm">
+              <Link to="/register" className="btn btn-primary">
                 Register
               </Link>
             </div>

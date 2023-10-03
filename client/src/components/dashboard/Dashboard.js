@@ -46,14 +46,11 @@ const Dashboard = ({ setAuth }) => {
   return (
     <Fragment>
       <div className="container">
-        <div className="d-flex mt-2 justify-content-between">
+        <div className="d-flex mt-3 mx-3 justify-content-center gap-4">
           <h2>{name}'s Dashboard</h2>
 
           <div>
-            <button
-              onClick={(e) => logout(e)}
-              className="btn btn-outline-primary btn-sm"
-            >
+            <button onClick={(e) => logout(e)} className="btn btn-secondary">
               Logout
             </button>
           </div>

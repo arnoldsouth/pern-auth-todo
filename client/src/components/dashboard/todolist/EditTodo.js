@@ -54,7 +54,7 @@ const EditTodo = ({ todo, setTodosChange }) => {
 
                 <button
                   type="button"
-                  className="btn-close btn-sm"
+                  className="btn-close "
                   data-bs-dismiss="modal"
                   aria-label="Close"
                   onClick={() => setDescription(todo.description)}
@@ -73,7 +73,7 @@ const EditTodo = ({ todo, setTodosChange }) => {
               <div className="modal-footer">
                 <button
                   type="button"
-                  className="btn btn-secondary btn-sm"
+                  className="btn btn-secondary "
                   data-bs-dismiss="modal"
                   onClick={() => setDescription(todo.description)}
                 >
@@ -82,7 +82,7 @@ const EditTodo = ({ todo, setTodosChange }) => {
 
                 <button
                   type="button"
-                  className="btn btn-primary btn-sm"
+                  className="btn btn-primary "
                   data-bs-dismiss="modal"
                   onClick={() => editText(todo.todo_id)}
                 >

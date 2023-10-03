@@ -47,7 +47,9 @@ const Login = ({ setAuth }) => {
   return (
     <Fragment>
       <div className="container">
-        <h1 className="mt-5 mb-3 text-center">Login</h1>
+        <div>
+          <h1 className="mt-5 mb-3 text-center">Login</h1>
+        </div>
 
         <div className="d-grid justify-content-center gap-2">
           <form onSubmit={onSubmitForm}>
@@ -58,7 +60,7 @@ const Login = ({ setAuth }) => {
               <input
                 type="text"
                 name="email"
-                className="form-control form-control-sm"
+                className="form-control"
                 id="emailFormControlInput"
                 placeholder="name@example.com"
                 value={email}
@@ -73,7 +75,7 @@ const Login = ({ setAuth }) => {
               <input
                 type="password"
                 name="password"
-                className="form-control form-control-sm"
+                className="form-control"
                 id="inputPassword"
                 placeholder="Password"
                 value={password}
@@ -81,13 +83,13 @@ const Login = ({ setAuth }) => {
               />
             </div>
 
-            <button type="submit" className="btn btn-primary btn-sm">
+            <button type="submit" className="btn btn-primary">
               Login
             </button>
           </form>
 
           <div>
-            <Link to="/register" className="btn btn-outline-primary btn-sm">
+            <Link to="/register" className="btn btn-outline-primary">
               Register
             </Link>
           </div>

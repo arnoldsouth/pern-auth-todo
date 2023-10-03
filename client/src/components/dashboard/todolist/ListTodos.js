@@ -25,46 +25,44 @@ const ListTodos = ({ allTodos, setTodosChange }) => {
   return (
     <Fragment>
       <div className="container">
-        <table className="table table-sm mt-5 align-middle">
-          <thead>
-            <tr>
-              {/* <th>Description</th>
-              <th>Edit</th>
-              <th>Delete</th> */}
+        <div className="d-grid justify-content-center gap-2">
+          <table className="table table-sm mt-5 align-middle">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Description</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
 
-              <th scope="col">#</th>
-              <th scope="col">Description</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
+            <tbody className="table-group-divider">
+              {todos.length !== 0 &&
+                todos[0].todo_id !== null &&
+                todos.map((todo, count) => (
+                  <tr key={todo.todo_id}>
+                    <td>{count + 1}</td>
 
-          <tbody className="table-group-divider">
-            {todos.length !== 0 &&
-              todos[0].todo_id !== null &&
-              todos.map((todo, count) => (
-                <tr key={todo.todo_id}>
-                  <td>{count + 1}</td>
+                    <td>{todo.description}</td>
 
-                  <td>{todo.description}</td>
+                    <td>
+                      <EditTodo todo={todo} setTodosChange={setTodosChange} />
+                    </td>
 
-                  <td>
-                    <EditTodo todo={todo} setTodosChange={setTodosChange} />
-                  </td>
-
-                  <td>
-                    <button
-                      type="button"
-                      className="btn"
-                      onClick={() => deleteTodo(todo.todo_id)}
-                    >
-                      ❌
-                    </button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+                    <td>
+                      <button
+                        type="button"
+                        className="btn"
+                        onClick={() => deleteTodo(todo.todo_id)}
+                      >
+                        ❌
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </Fragment>
   );
