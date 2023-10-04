@@ -8,8 +8,6 @@ import Register from './components/Register';
 import Dashboard from './components/dashboard/Dashboard';
 import Landing from './components/Landing';
 
-// toast.configure();
-
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -75,7 +73,18 @@ const App = () => {
             }
           />
         </Routes>
-        {/* <ToastContainer /> */}
+        <ToastContainer
+          position="top-right"
+          autoClose={1000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable
+          pauseOnHover={false}
+          theme="light"
+        />
       </Fragment>
     </BrowserRouter>
   );

@@ -1,18 +1,18 @@
 const express = require('express');
 const app = express();
 const cors = require('cors');
+const port = process.env.PORT || 5000;
 
-//middleware
+// MIDDLEWARE
 
 app.use(cors());
 app.use(express.json());
 
-//routes
+// ROUTES
 
 app.use('/authentication', require('./routes/jwtAuth'));
-
 app.use('/dashboard', require('./routes/dashboard'));
 
-app.listen(5000, () => {
-  console.log(`Server is starting on port 5000`);
+app.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });

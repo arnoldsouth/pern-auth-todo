@@ -4,9 +4,9 @@ import { toast } from 'react-toastify';
 
 const Register = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
+    name: '',
     email: '',
     password: '',
-    name: '',
   });
 
   const { email, password, name } = inputs;
@@ -33,10 +33,10 @@ const Register = ({ setAuth }) => {
       if (parseRes.jwtToken) {
         localStorage.setItem('token', parseRes.jwtToken);
         setAuth(true);
-        // toast.success("Register Successfully");
+        toast.success('Registered');
       } else {
         setAuth(false);
-        // toast.error(parseRes);
+        toast.error(parseRes);
       }
     } catch (err) {
       console.error(err.message);
@@ -52,6 +52,24 @@ const Register = ({ setAuth }) => {
 
         <div className="d-grid justify-content-center gap-2">
           <form onSubmit={onSubmitForm}>
+            <div className="mb-3">
+              <label
+                htmlFor="nameRegisterFormControlInput"
+                className="form-label"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                name="name"
+                className="form-control"
+                id="nameRegisterFormControlInput"
+                placeholder="Name"
+                value={name}
+                onChange={(e) => onChange(e)}
+              />
+            </div>
+
             <div className="mb-3">
               <label
                 htmlFor="emailRegisterFormControlInput"
@@ -81,24 +99,6 @@ const Register = ({ setAuth }) => {
                 id="inputPasswordRegister"
                 placeholder="Password"
                 value={password}
-                onChange={(e) => onChange(e)}
-              />
-            </div>
-
-            <div className="mb-3">
-              <label
-                htmlFor="nameRegisterFormControlInput"
-                className="form-label"
-              >
-                Name
-              </label>
-              <input
-                type="text"
-                name="name"
-                className="form-control"
-                id="nameRegisterFormControlInput"
-                placeholder="Name"
-                value={name}
                 onChange={(e) => onChange(e)}
               />
             </div>
