@@ -7,7 +7,9 @@ const pool = require('../db');
 router.get('/', authorize, async (req, res) => {
   try {
     const user = await pool.query(
-      'SELECT u.user_name, t.todo_id, t.description FROM users AS u LEFT JOIN todos AS t ON u.user_id = t.user_id WHERE u.user_id = $1',
+      'SELECT users.user_name, todos.todo_id, todos.description FROM users LEFT JOIN todos ON users.user_id = todos.user_id WHERE users.user_id = $1',
+      // Alternative shortened query
+      // 'SELECT u.user_name, t.todo_id, t.description FROM users AS u LEFT JOIN todos AS t ON u.user_id = t.user_id WHERE u.user_id = $1',
       [req.user.id]
     );
 
@@ -45,10 +47,10 @@ router.put('/todos/:id', authorize, async (req, res) => {
     );
 
     if (updateTodo.rows.length === 0) {
-      return res.json('This todo is not yours');
+      return res.json("Changes made to other users' todos not allowed");
     }
 
-    res.json('Todo was updated');
+    res.json('Updated todo');
   } catch (err) {
     console.error(err.message);
   }
@@ -64,10 +66,10 @@ router.delete('/todos/:id', authorize, async (req, res) => {
     );
 
     if (deleteTodo.rows.length === 0) {
-      return res.json('This Todo is not yours');
+      return res.json("Changes made to other users' todos not allowed");
     }
 
-    res.json('Todo was deleted');
+    res.json('Deleted todo');
   } catch (err) {
     console.error(err.message);
   }
